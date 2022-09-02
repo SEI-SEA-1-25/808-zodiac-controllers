@@ -19,15 +19,15 @@ router.get("/", (req, res) => {
 })
 
 router.get('/aquarius', (req, res) => {
-    res.send('aquarius')
+    res.render('sign.ejs', { sign: 'aquarius' })
 })
 
 router.get('/gemini', (req, res) => {
-    res.send('gemini')
+    res.render('sign.ejs', { sign: 'gemini' })
 })
 
 router.get('/libra', (req, res) => {
-    res.send('libra')
+    res.render('sign.ejs', { sign: 'libra' })
 })
 
 module.exports = router
