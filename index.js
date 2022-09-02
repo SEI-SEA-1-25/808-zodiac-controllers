@@ -14,7 +14,7 @@ const PORT = 3000
 const elements = {
     air: {
         name: "air",
-        signs: ["aquarius", "geminin", "libra"],
+        signs: ["aquarius", "gemini", "libra"],
         traits: ["movement", "creativity", "action", "adventure", "exciting", "easily provoked"]
     },
     water: {
@@ -34,8 +34,11 @@ const elements = {
     }
 }
 
+// app config area
 app.use(expressEjsLayouts)
-
+// tell express where to find static assets
+// app.use(express.static('folder-name))
+app.use(express.static('public'))
 // SET THE VIEW ENGINE
 app.set("view engine", "ejs")
 
@@ -46,16 +49,9 @@ app.get("/", (req, res) => {
     res.render("index")
 })
 
-// AIR route = localhost:3000/air
-// HTTP verb = GET   URL pattern = "/air"
-app.get("/air", (req, res) => {
-    // ROUTE CHECK
-    // res.send("AIR")
-    // DATA CHECK
-    // res.json(elements.air)
-    // TEMPLATE
-    res.render("show", {element: elements.air})
-})
+// controllers 
+// app.use('/common url prefix', require('./path to contrller file))
+app.use('/air', require('./controllers/air'))
 
 // WATER route = localhost:3000/water
 // HTTP verb = GET   URL pattern = "/water"
